@@ -37,7 +37,7 @@ export const AddTokenAction: FC = () => {
         flexWrap="wrap"
       >
         <Typography color="text.secondary" variant="body2">
-          Add ERC20 Tokens to your wallet with the button{' '}
+          Add ERC20 Tokens to your wallet with the button
         </Typography>
         <Button onClick={addTokenToWallet}>Add ERC20 token</Button>
       </Stack>
