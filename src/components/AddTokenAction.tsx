@@ -11,9 +11,6 @@ export const AddTokenAction: FC = () => {
     if (!provider) {
       throw new Error("Provider isn't defined!")
     }
-    if (!window.ethereum) {
-      throw new Error("Provider isn't defined!")
-    }
 
     await provider.send('wallet_watchAsset', {
       // @ts-expect-error How to notate this?!
