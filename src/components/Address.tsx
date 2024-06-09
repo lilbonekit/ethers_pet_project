@@ -10,15 +10,15 @@ export const Address: FC = () => {
 
   useEffect(() => {
     const fetchAddress = async () => {
-      if (signer) {
-        try {
-          const address = await signer.getAddress()
-          setAddress(address)
-        } catch (error) {
-          console.error('Failed to get address:', error)
+      try {
+        if (!signer) {
           setAddress('')
+          return
         }
-      } else {
+        const address = await signer.getAddress()
+        setAddress(address)
+      } catch (error) {
+        console.error('Failed to get address:', error)
         setAddress('')
       }
     }

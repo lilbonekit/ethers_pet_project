@@ -22,6 +22,7 @@ const initialState: State = {
 
 export const useUserStore = create<State & Actions>()((set, get) => ({
   ...initialState,
+
   setProvider: async () => {
     if (!window.ethereum) {
       throw new Error(
@@ -34,8 +35,8 @@ export const useUserStore = create<State & Actions>()((set, get) => ({
     const network = await provider.getNetwork()
 
     set(() => ({ provider, signer, network }))
-    return
   },
+
   switchToSepolia: async () => {
     const provider = get().provider
 
@@ -48,6 +49,7 @@ export const useUserStore = create<State & Actions>()((set, get) => ({
     const network = await provider.getNetwork()
     set(() => ({ network }))
   },
+
   addSepolia: async () => {
     const provider = get().provider
     const switchToSepolia = get().switchToSepolia
@@ -71,6 +73,7 @@ export const useUserStore = create<State & Actions>()((set, get) => ({
       await switchToSepolia(),
     ])
   },
+
   reset: async () => {
     const provider = get().provider
     if (provider) {
