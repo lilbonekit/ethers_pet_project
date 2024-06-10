@@ -8,19 +8,20 @@ import 'normalize.css'
 
 const App: FC = () => {
   const setProvider = useUserStore((store) => store.setProvider)
+  const reset = useUserStore((store) => store.reset)
   const provider = useUserStore((store) => store.provider)
 
   // keep session after reloading
   // but works with issues
   // TODO: ask about this approaching
-  //
-  // useEffect(() => {
-  //   const init = async () => {
-  //     await setProvider()
-  //   }
+  useEffect(() => {
+    const init = async () => {
+      await reset()
+      await setProvider()
+    }
 
-  //   init()
-  // })
+    init()
+  }, [setProvider, reset])
 
   useEffect(() => {
     const init = async () => {
