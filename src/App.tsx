@@ -26,7 +26,7 @@ const App: FC = () => {
   useEffect(() => {
     const init = async () => {
       await setProvider()
-      // window.location.reload()
+      window.location.reload()
     }
 
     if (provider) {
