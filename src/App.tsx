@@ -12,7 +12,6 @@ const App: FC = () => {
   const provider = useUserStore((store) => store.provider)
 
   // keep session after reloading
-  // but works with issues
   // TODO: ask about this approaching
   useEffect(() => {
     const init = async () => {
@@ -26,7 +25,7 @@ const App: FC = () => {
   useEffect(() => {
     const init = async () => {
       await setProvider()
-      window.location.reload()
+      // window.location.reload()
     }
 
     if (provider) {
